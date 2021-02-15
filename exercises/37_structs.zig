@@ -10,8 +10,8 @@
 //
 // into this:
 //
-//     point1 = Point{ .x=3, .y=16, .y=27 };
-//     point2 = Point{ .x=7, .y=13, .y=34 };
+//     point1 = Point{ .x=3, .y=16, .z=27 };
+//     point2 = Point{ .x=7, .y=13, .z=34 };
 //
 // The Point above is an example of a "struct" (short for "structure").
 // Here's how it could have been defined:
@@ -23,7 +23,7 @@
 const std = @import("std");
 
 // We'll use an enum to specify the character class.
-const Class = enum{
+const Class = enum {
     wizard,
     thief,
     bard,
@@ -32,18 +32,20 @@ const Class = enum{
 
 // Please add a new property to this struct called "health" and make
 // it a u8 integer type.
-const Character = struct{
+const Character = struct {
     class: Class,
     gold: u32,
     experience: u32,
+    health: u32,
 };
 
 pub fn main() void {
     // Please initialize Glorp with 100 health.
     var glorp_the_wise = Character{
-        .class      = Class.wizard,
-        .gold       = 20,
+        .class = Class.wizard,
+        .gold = 20,
         .experience = 10,
+        .health = 100,
     };
 
     // Glorp gains some gold.
@@ -54,6 +56,6 @@ pub fn main() void {
 
     std.debug.print("Your wizard has {} health and {} gold.", .{
         glorp_the_wise.health,
-        glorp_the_wise.gold
+        glorp_the_wise.gold,
     });
 }

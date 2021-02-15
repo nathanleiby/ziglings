@@ -2,7 +2,7 @@
 // Oh no! This program is supposed to print "Hello world!" but it needs
 // your help!
 //
-// 
+//
 // Zig functions are private by default but the main() function should
 // be public.
 //
@@ -16,7 +16,6 @@
 //
 const std = @import("std");
 
-fn main() void {
+pub fn main() void {
     std.debug.print("Hello world!\n", .{});
 }
-

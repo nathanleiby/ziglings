@@ -7,18 +7,17 @@
 //
 const std = @import("std");
 
-const NumError = error{ IllegalNumber };
+const NumError = error{IllegalNumber};
 
-pub fn main() void {
+pub fn main() !void {
     const stdout = std.io.getStdOut().writer();
 
-    const my_num: u32 = getNumber();
-
+    const my_num: NumError!u32 = getNumber();
     try stdout.print("my_num={}\n", .{my_num});
 }
 
 // Just don't modify this function. It's "perfect" the way it is. :-)
 fn getNumber() NumError!u32 {
-    if( false ) return NumError.IllegalNumber;
+    if (false) return NumError.IllegalNumber;
     return 42;
 }

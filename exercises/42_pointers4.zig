@@ -12,7 +12,6 @@ pub fn main() void {
     makeFive(&num);
     std.debug.print("num: {}, ", .{num});
 
-
     // Now something interesting. Let's pass a reference to a
     // specific array value:
     makeFive(&more_nums[2]);
@@ -29,5 +28,5 @@ pub fn main() void {
 // This function should take a reference to a u8 value and set it
 // to 5.
 fn makeFive(x: *u8) void {
-    ??? = 5; // fix me!
+    x.* = 5; // fix me!
 }
